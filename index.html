@@ -68,53 +68,6 @@
             </div>
         </div>
     </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2>Contact Us</h2>
-            <form>
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" rows="5" required></textarea>
-
-                <button type="submit">Send</button>
-            </form>
-        </div>
-        <form id="signUpForm">
-    <input type="email" id="email" name="email" placeholder="Enter your email" required>
-    <button type="submit">Sign Up</button>
-</form>
-<script>
-    document.getElementById('signUpForm').addEventListener('submit', async function(event) {
-        event.preventDefault();
-        const email = document.getElementById('email').value;
-        const response = await fetch('https://api.constantcontact.com/v2/contact', {
-            method: 'POST',
-            headers: {
-                'Authorization': 'Bearer cc0f35bc-d021-40b1-a2b9-00e455f5074b',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                "email_addresses": [{"email_address": email}],
-                "lists": [{"id": "LIST_ID"}]
-            })
-        });
-        if (response.ok) {
-            alert('Signed Up Successfully!');
-        } else {
-            alert('Error Signing Up!');
-        }
-    });
-</script>
-
-    </section>
-
     <!-- Footer Section -->
     <footer>
         <p>&copy; 2024 MyWebsite. All rights reserved.</p>
